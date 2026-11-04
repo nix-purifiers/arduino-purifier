@@ -17,6 +17,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v31
       - run: python3 tests/eval-errors.py
+      - run: python3 tests/snapshots.py
       - run: nix flake check -L
       - run: python3 tests/conformance.py
       - run: python3 tests/capture.py

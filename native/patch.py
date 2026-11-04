@@ -72,3 +72,12 @@ replace(
     "cmd.AddCommand(board.NewCommand(srv))",
     "cmd.AddCommand(purifierProjectCmd())\n cmd.AddCommand(board.NewCommand(srv))",
 )
+
+path = "internal/arduino/resources/index.go"
+anchor = "func (res *IndexResource) Download(ctx context.Context, destDir *paths.Path, downloadCB rpc.DownloadProgressCB, config downloader.Config) error {"
+replace(
+    path,
+    anchor,
+    anchor
+    + "\n httpclient.PurifierMarkIndex(res.URL.String())\n if res.SignatureURL!=nil {httpclient.PurifierMarkIndex(res.SignatureURL.String())}",
+)

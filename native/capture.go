@@ -11,6 +11,12 @@ import (
  "sync"
 )
 var purifierMu sync.Mutex
+var purifierIndexes = map[string]bool{}
+func PurifierMarkIndex(url string) {
+ if os.Getenv("ARDUINO_PURIFIER_CAPTURE")=="" {return}
+ purifierMu.Lock();defer purifierMu.Unlock()
+ purifierIndexes[url]=true
+}
 func purifierCapture(path, url string) error {
  dir:=os.Getenv("ARDUINO_PURIFIER_CAPTURE")
  if dir=="" { return nil }
@@ -23,7 +29,7 @@ func purifierCapture(path, url string) error {
  purifierMu.Lock();defer purifierMu.Unlock()
  output,err:=os.OpenFile(filepath.Join(dir,"records.jsonl"),os.O_CREATE|os.O_APPEND|os.O_WRONLY,0600)
  if err!=nil{return err};defer output.Close()
- return json.NewEncoder(output).Encode(map[string]string{"url":url,"sha256":hash,"archive":archive})
+ return json.NewEncoder(output).Encode(map[string]string{"url":url,"sha256":hash,"archive":archive,"index":fmt.Sprint(purifierIndexes[url])})
 }
 func purifierReplay(path, url string) (bool,error) {
  file:=os.Getenv("ARDUINO_PURIFIER_REPLAY")

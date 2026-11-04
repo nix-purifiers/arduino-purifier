@@ -61,4 +61,17 @@ with tempfile.TemporaryDirectory() as temporary:
         lock.write_text(json.dumps(data))
         assert inspect()["problems"]
     lock.write_text(json.dumps(original))
+    snapshot_entry = next(
+        entry
+        for entry in original["systems"]["x86_64-linux"]["entries"]
+        if "indexSnapshot" in entry
+    )
+    snapshot = root / snapshot_entry["indexSnapshot"]
+    payload = snapshot.read_bytes()
+    snapshot.unlink()
+    assert inspect()["problems"]
+    snapshot.write_bytes(b"corrupted index snapshot")
+    assert inspect()["problems"]
+    snapshot.write_bytes(payload)
+    assert not inspect()["problems"]
 print("Arduino lock errors and output names validated without IFD")

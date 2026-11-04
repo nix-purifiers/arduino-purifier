@@ -1,6 +1,6 @@
 {
   "purifier": "arduino",
-  "sdk": "cc62d966a0859669c1903f3e1a68860dc252946272424d4e5031914d4a17909a",
+  "sdk": "3ba0ed7df1c4befd7c1e0fc75747f585309d321f8a84accd4b709e7ad3e9f371",
   "selection": {
     "defaultProfile": "uno",
     "profiles": [
@@ -85,7 +85,8 @@
           "url": "https://downloads.arduino.cc/libraries/github.com/bblanchon/ArduinoJson-7.4.3.zip"
         },
         {
-          "hash": "sha256-5NgkRoRFkfPGXxVL0D3POmApShyeT2PLV0LiEfHHrZ0=",
+          "hash": "sha256-v2Ge0WPxTuisc8tdY/T0pGiOFgVFZHaqhB9dVESG26M=",
+          "indexSnapshot": "arduino-purifier.indexes/bf619ed163f14ee8ac73cb5d63f4f4a4688e1605456476aa841f5d544486dba3.snapshot",
           "mirrors": [],
           "path": "archive-7",
           "url": "https://downloads.arduino.cc/libraries/library_index.tar.bz2"
@@ -98,6 +99,7 @@
         },
         {
           "hash": "sha256-FwQ6vzbhpWwKB+q25sOD1oLVMs9Ns4/QuzrI1A/RaeA=",
+          "indexSnapshot": "arduino-purifier.indexes/17043abf36e1a56c0a07eab6e6c383d682d532cf4db38fd0bb3ac8d40fd169e0.snapshot",
           "mirrors": [],
           "path": "archive-9",
           "url": "https://downloads.arduino.cc/packages/package_index.tar.bz2"
@@ -173,7 +175,8 @@
           "url": "https://downloads.arduino.cc/libraries/github.com/bblanchon/ArduinoJson-7.4.3.zip"
         },
         {
-          "hash": "sha256-5NgkRoRFkfPGXxVL0D3POmApShyeT2PLV0LiEfHHrZ0=",
+          "hash": "sha256-v2Ge0WPxTuisc8tdY/T0pGiOFgVFZHaqhB9dVESG26M=",
+          "indexSnapshot": "arduino-purifier.indexes/bf619ed163f14ee8ac73cb5d63f4f4a4688e1605456476aa841f5d544486dba3.snapshot",
           "mirrors": [],
           "path": "archive-7",
           "url": "https://downloads.arduino.cc/libraries/library_index.tar.bz2"
@@ -186,6 +189,7 @@
         },
         {
           "hash": "sha256-FwQ6vzbhpWwKB+q25sOD1oLVMs9Ns4/QuzrI1A/RaeA=",
+          "indexSnapshot": "arduino-purifier.indexes/17043abf36e1a56c0a07eab6e6c383d682d532cf4db38fd0bb3ac8d40fd169e0.snapshot",
           "mirrors": [],
           "path": "archive-9",
           "url": "https://downloads.arduino.cc/packages/package_index.tar.bz2"
@@ -217,5 +221,5 @@
       ]
     }
   },
-  "version": 1
+  "version": 2
 }

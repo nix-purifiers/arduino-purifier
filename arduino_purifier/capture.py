@@ -1,4 +1,5 @@
 import base64
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -67,21 +68,38 @@ def capture(root, companion, update=False):
                         "Public stable HTTPS Arduino downloads are required"
                     )
                 run(["nix", "store", "add-file", item["archive"]])
-                entries.append(
-                    dict(
-                        path="archive-" + str(index),
-                        url=url,
-                        mirrors=[],
-                        hash="sha256-"
-                        + base64.b64encode(bytes.fromhex(item["sha256"])).decode(),
-                    )
+                entry = dict(
+                    path="archive-" + str(index),
+                    url=url,
+                    mirrors=[],
+                    hash="sha256-"
+                    + base64.b64encode(bytes.fromhex(item["sha256"])).decode(),
                 )
+                if item.get("index") == "true":
+                    snapshot = (
+                        root
+                        / "arduino-purifier.indexes"
+                        / (item["sha256"] + ".snapshot")
+                    )
+                    payload = Path(item["archive"]).read_bytes()
+                    if hashlib.sha256(payload).hexdigest() != item["sha256"]:
+                        raise ValueError("Captured Arduino index digest changed")
+                    snapshot.parent.mkdir(parents=True, exist_ok=True)
+                    if snapshot.exists():
+                        if snapshot.read_bytes() != payload:
+                            raise ValueError("Arduino index snapshot was replaced")
+                    else:
+                        staged_snapshot = snapshot.with_suffix(".tmp")
+                        staged_snapshot.write_bytes(payload)
+                        staged_snapshot.replace(snapshot)
+                    entry["indexSnapshot"] = str(snapshot.relative_to(root))
+                entries.append(entry)
             systems[system] = dict(entries=entries)
         candidate = state / "arduino-purifier.lock.json"
         candidate.write_text(
             json.dumps(
                 dict(
-                    version=1,
+                    version=2,
                     purifier="arduino",
                     sdk=os.environ["ARDUINO_PURIFIER_SDK_VERSION"],
                     selection=selection,

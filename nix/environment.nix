@@ -19,19 +19,36 @@
 }:
 let
   checked = purifier.checkLock lock;
+  snapshots = builtins.listToAttrs (
+    map (entry: {
+      name = entry.hash;
+      value = entry.snapshotSource;
+    }) (builtins.filter (entry: entry ? snapshotSource) checked.entries)
+  );
+  fetchLocked =
+    args:
+    if builtins.hasAttr args.hash snapshots then
+      runCommand args.name {
+        snapshot = snapshots.${args.hash};
+        outputHash = args.hash;
+        outputHashAlgo = "sha256";
+        outputHashMode = "flat";
+      } ''cp "$snapshot" "$out"''
+    else
+      (fetchers.fetchurl or fetchurl) args;
   archives = purifier.tree (
     {
       name = "arduino-archives";
       inherit
         runCommand
-        fetchurl
         fetchgit
         writeText
         python3
         ;
+      fetchurl = fetchLocked;
       entries = checked.entries;
     }
-    // fetchers
+    // builtins.removeAttrs fetchers [ "fetchurl" ]
   );
   replay = writeText "arduino-replay.json" (
     builtins.toJSON (

@@ -19,7 +19,7 @@ let
       ".."
     ]);
   shape =
-    (data.version or null) == 1
+    (data.version or null) == 2
     && (data.purifier or null) == "arduino"
     && builtins.isString (data.sdk or null)
     && builtins.isAttrs (data.selection or null)
@@ -42,6 +42,18 @@ let
       && builtins.match "sha256-[A-Za-z0-9+/]{43}=" e.hash != null
       && builtins.isList (e.mirrors or null)
       && builtins.all builtins.isString e.mirrors
+      && (
+        !(e ? indexSnapshot)
+        || (
+          builtins.isString e.indexSnapshot
+          && builtins.match "arduino-purifier[.]indexes/[0-9a-f]{64}[.]snapshot" e.indexSnapshot != null
+          && builtins.pathExists (src + ("/" + e.indexSnapshot))
+          &&
+            e.indexSnapshot == "arduino-purifier.indexes/"
+            + builtins.hashFile "sha256" (src + ("/" + e.indexSnapshot))
+            + ".snapshot"
+        )
+      )
     ) entries;
   valid =
     shape
@@ -54,10 +66,15 @@ let
 in
 {
   purifier = "arduino";
-  inherit data selected entries;
+  inherit data selected;
+  entries = map (
+    entry:
+    entry
+    // lib.optionalAttrs (entry ? indexSnapshot) { snapshotSource = src + ("/" + entry.indexSnapshot); }
+  ) entries;
   problems =
     lib.optional (!valid)
-      "Arduino lock is missing, malformed, or has no closure for this system; run arduino-purifier lock --update";
+      "Arduino lock or committed index snapshots are missing or malformed; restore them or run arduino-purifier lock --update";
   outputs = {
     packages = [
       "default"
