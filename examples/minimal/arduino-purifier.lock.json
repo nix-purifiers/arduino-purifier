@@ -1,0 +1,221 @@
+{
+  "purifier": "arduino",
+  "sdk": "cc62d966a0859669c1903f3e1a68860dc252946272424d4e5031914d4a17909a",
+  "selection": {
+    "defaultProfile": "uno",
+    "profiles": [
+      {
+        "fqbn": "arduino:avr:uno",
+        "libraries": [
+          {
+            "InstallDir": null,
+            "IsDependency": false,
+            "Library": "ArduinoJson",
+            "Version": "7.4.3"
+          },
+          {
+            "InstallDir": null,
+            "IsDependency": false,
+            "Library": "Adafruit GFX Library",
+            "Version": "1.12.4"
+          },
+          {
+            "InstallDir": null,
+            "IsDependency": false,
+            "Library": "Adafruit BusIO",
+            "Version": "1.17.4"
+          }
+        ],
+        "name": "uno",
+        "platforms": [
+          {
+            "Architecture": "avr",
+            "Packager": "arduino",
+            "PlatformIndexURL": null,
+            "Version": "1.8.6"
+          }
+        ]
+      }
+    ],
+    "sketchYaml": "profiles:\n  uno:\n    fqbn: arduino:avr:uno\n    platforms:\n      - platform: arduino:avr (1.8.6)\n    libraries:\n      - ArduinoJson (7.4.3)\n      - Adafruit GFX Library (1.12.4)\n      - Adafruit BusIO (1.17.4)\n\ndefault_profile: uno\n"
+  },
+  "systems": {
+    "aarch64-linux": {
+      "entries": [
+        {
+          "hash": "sha256-/x0XJ0talS8XIHS9NsOSQza6797QIy4QmC+JmcL3w7Y=",
+          "mirrors": [],
+          "path": "archive-0",
+          "url": "https://downloads.arduino.cc/cores/staging/avr-1.8.6.tar.bz2"
+        },
+        {
+          "hash": "sha256-S9pUuQMdWx+xr3DRw4vxsfjP0OsM2B9sOkMlPDHeqS0=",
+          "mirrors": [],
+          "path": "archive-1",
+          "url": "https://downloads.arduino.cc/discovery/dfu-discovery/dfu-discovery_v0.1.2_Linux_ARM64.tar.gz"
+        },
+        {
+          "hash": "sha256-GVl9jRWqySKBOzQGTeuHDA5e/AjXQw0VyFAXaIkPdyU=",
+          "mirrors": [],
+          "path": "archive-2",
+          "url": "https://downloads.arduino.cc/discovery/mdns-discovery/mdns-discovery_v1.1.0_Linux_ARM64.tar.gz"
+        },
+        {
+          "hash": "sha256-SJyB0BYuKOnGYC7LzgkuWkZp50ENlQZ+1t0ZROajzTQ=",
+          "mirrors": [],
+          "path": "archive-3",
+          "url": "https://downloads.arduino.cc/discovery/serial-discovery/serial-discovery_v1.5.2_Linux_ARM64.tar.gz"
+        },
+        {
+          "hash": "sha256-x7qxtsbu5ktQlkyOFJt5VxmgHx2d/NzvFws12qaWNJs=",
+          "mirrors": [],
+          "path": "archive-4",
+          "url": "https://downloads.arduino.cc/libraries/github.com/adafruit/Adafruit_BusIO-1.17.4.zip"
+        },
+        {
+          "hash": "sha256-Rwm6ebkRATgpoyHFg6RBy8bMBsCqxUnfVnn7J+iROkE=",
+          "mirrors": [],
+          "path": "archive-5",
+          "url": "https://downloads.arduino.cc/libraries/github.com/adafruit/Adafruit_GFX_Library-1.12.4.zip"
+        },
+        {
+          "hash": "sha256-zY0vfk8G634hW+7LDeUyaoLQR6mU6EJGVyrXPdxSdG8=",
+          "mirrors": [],
+          "path": "archive-6",
+          "url": "https://downloads.arduino.cc/libraries/github.com/bblanchon/ArduinoJson-7.4.3.zip"
+        },
+        {
+          "hash": "sha256-5NgkRoRFkfPGXxVL0D3POmApShyeT2PLV0LiEfHHrZ0=",
+          "mirrors": [],
+          "path": "archive-7",
+          "url": "https://downloads.arduino.cc/libraries/library_index.tar.bz2"
+        },
+        {
+          "hash": "sha256-uxbPIIvvsZzvhxD3Uycvnh3bwb2FHVe+Nx9tS3evbF4=",
+          "mirrors": [],
+          "path": "archive-8",
+          "url": "https://downloads.arduino.cc/monitor/serial-monitor/serial-monitor_v0.15.0_Linux_ARM64.tar.gz"
+        },
+        {
+          "hash": "sha256-FwQ6vzbhpWwKB+q25sOD1oLVMs9Ns4/QuzrI1A/RaeA=",
+          "mirrors": [],
+          "path": "archive-9",
+          "url": "https://downloads.arduino.cc/packages/package_index.tar.bz2"
+        },
+        {
+          "hash": "sha256-g17Y83z/rDfpedGw9gQVWVktPZi+UvDoYRt2xIWOQRM=",
+          "mirrors": [],
+          "path": "archive-10",
+          "url": "https://downloads.arduino.cc/tools/arduinoOTA-1.3.0-linux_arm64.tar.bz2"
+        },
+        {
+          "hash": "sha256-A9Miud9toXKJ6efGIzw0qFNdnGRcGe/HcroZ5WkU8zk=",
+          "mirrors": [],
+          "path": "archive-11",
+          "url": "https://downloads.arduino.cc/tools/avr-gcc-7.3.0-atmel3.6.1-arduino7-aarch64-pc-linux-gnu.tar.bz2"
+        },
+        {
+          "hash": "sha256-bPlI91Gs/nuWaEU38ikcdm7ItUtPfclVOYZIIUVvqfw=",
+          "mirrors": [],
+          "path": "archive-12",
+          "url": "https://downloads.arduino.cc/tools/avrdude-6.3.0-arduino17-aarch64-pc-linux-gnu.tar.bz2"
+        },
+        {
+          "hash": "sha256-ibb4rbe3Ek6+LrMJcOp3x1TNIjng2KawECrio2QWxu8=",
+          "mirrors": [],
+          "path": "archive-13",
+          "url": "https://downloads.arduino.cc/tools/ctags-5.8-arduino11-pm-aarch64-linux-gnu.tar.bz2"
+        }
+      ]
+    },
+    "x86_64-linux": {
+      "entries": [
+        {
+          "hash": "sha256-/x0XJ0talS8XIHS9NsOSQza6797QIy4QmC+JmcL3w7Y=",
+          "mirrors": [],
+          "path": "archive-0",
+          "url": "https://downloads.arduino.cc/cores/staging/avr-1.8.6.tar.bz2"
+        },
+        {
+          "hash": "sha256-2CZJdB/Wy+Np1/4i0pDv1+KOTW/QuBt7Hqv/Q7SVtfg=",
+          "mirrors": [],
+          "path": "archive-1",
+          "url": "https://downloads.arduino.cc/discovery/dfu-discovery/dfu-discovery_v0.1.2_Linux_64bit.tar.gz"
+        },
+        {
+          "hash": "sha256-aWb0BuW26A2Co4hwbW2dimPUYDXRnR5rT7Hr6vf+oFY=",
+          "mirrors": [],
+          "path": "archive-2",
+          "url": "https://downloads.arduino.cc/discovery/mdns-discovery/mdns-discovery_v1.1.0_Linux_64bit.tar.gz"
+        },
+        {
+          "hash": "sha256-epXXOGxmwIRv5KqWtgHnJ4OuZPVB6y9e20/J5poEttM=",
+          "mirrors": [],
+          "path": "archive-3",
+          "url": "https://downloads.arduino.cc/discovery/serial-discovery/serial-discovery_v1.5.2_Linux_64bit.tar.gz"
+        },
+        {
+          "hash": "sha256-x7qxtsbu5ktQlkyOFJt5VxmgHx2d/NzvFws12qaWNJs=",
+          "mirrors": [],
+          "path": "archive-4",
+          "url": "https://downloads.arduino.cc/libraries/github.com/adafruit/Adafruit_BusIO-1.17.4.zip"
+        },
+        {
+          "hash": "sha256-Rwm6ebkRATgpoyHFg6RBy8bMBsCqxUnfVnn7J+iROkE=",
+          "mirrors": [],
+          "path": "archive-5",
+          "url": "https://downloads.arduino.cc/libraries/github.com/adafruit/Adafruit_GFX_Library-1.12.4.zip"
+        },
+        {
+          "hash": "sha256-zY0vfk8G634hW+7LDeUyaoLQR6mU6EJGVyrXPdxSdG8=",
+          "mirrors": [],
+          "path": "archive-6",
+          "url": "https://downloads.arduino.cc/libraries/github.com/bblanchon/ArduinoJson-7.4.3.zip"
+        },
+        {
+          "hash": "sha256-5NgkRoRFkfPGXxVL0D3POmApShyeT2PLV0LiEfHHrZ0=",
+          "mirrors": [],
+          "path": "archive-7",
+          "url": "https://downloads.arduino.cc/libraries/library_index.tar.bz2"
+        },
+        {
+          "hash": "sha256-8byWgPLP8IaIvEzLr16b5M44qj8Q1ApIencEwEAG8Zs=",
+          "mirrors": [],
+          "path": "archive-8",
+          "url": "https://downloads.arduino.cc/monitor/serial-monitor/serial-monitor_v0.15.0_Linux_64bit.tar.gz"
+        },
+        {
+          "hash": "sha256-FwQ6vzbhpWwKB+q25sOD1oLVMs9Ns4/QuzrI1A/RaeA=",
+          "mirrors": [],
+          "path": "archive-9",
+          "url": "https://downloads.arduino.cc/packages/package_index.tar.bz2"
+        },
+        {
+          "hash": "sha256-qkXuJEH/w6Ei2uxYApQdH6KsR631xcSBteDapNwln/o=",
+          "mirrors": [],
+          "path": "archive-10",
+          "url": "https://downloads.arduino.cc/tools/arduinoOTA-1.3.0-linux_amd64.tar.bz2"
+        },
+        {
+          "hash": "sha256-vYw39pUqITCsnuMsU/amYP63m+6DU8jiietg/c7+2R4=",
+          "mirrors": [],
+          "path": "archive-11",
+          "url": "https://downloads.arduino.cc/tools/avr-gcc-7.3.0-atmel3.6.1-arduino7-x86_64-pc-linux-gnu.tar.bz2"
+        },
+        {
+          "hash": "sha256-rM37kgryqr9PdGHSrHPAdRdg9SUhbcTnZXQnp4xg0T0=",
+          "mirrors": [],
+          "path": "archive-12",
+          "url": "https://downloads.arduino.cc/tools/avrdude-6.3.0-arduino17-x86_64-pc-linux-gnu.tar.bz2"
+        },
+        {
+          "hash": "sha256-YrUU86rze1Qp73A4U7tGNl+5G0dUwZFtCFvxNABIhuM=",
+          "mirrors": [],
+          "path": "archive-13",
+          "url": "https://downloads.arduino.cc/tools/ctags-5.8-arduino11-pm-x86_64-pc-linux-gnu.tar.bz2"
+        }
+      ]
+    }
+  },
+  "version": 1
+}
