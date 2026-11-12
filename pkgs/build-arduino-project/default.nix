@@ -24,7 +24,7 @@
 }:
 let
   lock = purifier.checkLock (
-    import ./read-lock.nix { inherit lib; } {
+    import ../../lib-overlays/default/read-lock.nix { inherit lib; } {
       inherit src lockFile;
       system = stdenv.hostPlatform.system;
     }
@@ -42,11 +42,11 @@ let
   };
   name = baseNameOf (toString src);
   driver = lib.fileset.toSource {
-    root = ../.;
+    root = ../..;
     fileset = lib.fileset.unions [
-      ../arduino_purifier/common.py
-      ../arduino_purifier/layout.py
-      ../native/check.py
+      ../../arduino_purifier/common.py
+      ../../arduino_purifier/layout.py
+      ../../native/check.py
     ];
   };
   project = runCommand "arduino-native-firmware" { } ''

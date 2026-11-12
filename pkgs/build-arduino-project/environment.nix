@@ -77,7 +77,7 @@ let
         cp ${sketch} project/sketch.yaml
         printf 'void setup() {}\nvoid loop() {}\n' > project/project.ino
         ${profileCommands}
-        ${python3}/bin/python3 ${../native/normalize.py} "$out"
+        ${python3}/bin/python3 ${../../native/normalize.py} "$out"
         rm -f "$out/inventory.yaml"
         rm -rf "$out/tmp"
         for debugger in "$out"/internal/*/bin/avr-gdb; do

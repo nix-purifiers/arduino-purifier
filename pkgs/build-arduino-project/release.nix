@@ -5,7 +5,7 @@
 let
   nixpkgsSrc = /. + "@nixpkgs@";
   pkgs = import nixpkgsSrc { };
-  scope = import ./scope.nix {
+  scope = import ../default.nix {
     inherit pkgs nixpkgsSrc;
     purifierSrc = /. + "@purifier@";
   };

@@ -89,7 +89,7 @@ def main_impl():
             "import "
             + json.dumps(
                 os.environ["ARDUINO_PURIFIER_SDK"]
-                + "/lib/arduino-purifier/nix/release.nix"
+                + "/lib/arduino-purifier/pkgs/build-arduino-project/release.nix"
             )
             + " {root="
             + json.dumps(str(root))

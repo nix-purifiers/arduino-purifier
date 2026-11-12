@@ -18,7 +18,7 @@
       ];
       forAll = nixpkgs.lib.genAttrs systems;
       overlay = final: prev: {
-        arduino-purifier = import ./nix/scope.nix {
+        arduino-purifier = import ./pkgs/default.nix {
           pkgs = final;
           nixpkgsSrc = nixpkgs;
           purifierSrc = purifier;
@@ -44,7 +44,7 @@
           meta.description = "Lock native Arduino dependencies";
         };
       });
-      lib.arduino-purifier.readLock = import ./nix/read-lock.nix { lib = nixpkgs.lib; };
+      lib.arduino-purifier = (nixpkgs.lib.extend (import ./lib-overlays/default)).arduino-purifier;
       checks = forAll (
         system:
         let
