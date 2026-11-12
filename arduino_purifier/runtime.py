@@ -22,7 +22,7 @@ def realize(root, companion):
     if not profile.exists():
         expression = (
             "import "
-            + json.dumps(sdk + "/lib/arduino-purifier/nix/realize.nix")
+            + json.dumps(sdk + "/lib/arduino-purifier/pkgs/build-arduino-project/realize.nix")
             + " {root="
             + json.dumps(str(root))
             + ";lockFile="

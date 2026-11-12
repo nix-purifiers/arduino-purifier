@@ -29,7 +29,7 @@ with tempfile.TemporaryDirectory(prefix="arduino-snapshot-replay-") as temporary
         + """;
  p=import f.inputs.nixpkgs {};
  scope=import """
-        + json.dumps(str(repo / "nix/scope.nix"))
+        + json.dumps(str(repo / "pkgs/default.nix"))
         + """ {pkgs=p;nixpkgsSrc=f.inputs.nixpkgs;purifierSrc=f.inputs.purifier;};
  lock=f.lib.arduino-purifier.readLock {src=/. + """
         + json.dumps(str(root))
@@ -38,7 +38,7 @@ with tempfile.TemporaryDirectory(prefix="arduino-snapshot-replay-") as temporary
         + json.dumps(urls).replace(", ", " ")
         + """) args.urls then throw "Mutable Arduino index fetch attempted" else p.fetchurl args;
  environment=scope.callPackage """
-        + json.dumps(str(repo / "nix/environment.nix"))
+        + json.dumps(str(repo / "pkgs/build-arduino-project/environment.nix"))
         + """ {} {inherit lock;fetchers.fetchurl=guarded;};
  in environment.packages"""
     )

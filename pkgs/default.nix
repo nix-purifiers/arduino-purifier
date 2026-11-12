@@ -23,6 +23,6 @@ pkgs.lib.makeScope pkgs.newScope (scope: {
       normalize = builtins.hashFile "sha256" ../native/normalize.py;
     }
   );
-  cli = scope.callPackage ./cli.nix { inherit nixpkgsSrc purifierSrc; };
-  buildArduinoProject = scope.callPackage ./build-project.nix { };
+  cli = scope.callPackage ./cli/default.nix { inherit nixpkgsSrc purifierSrc; };
+  buildArduinoProject = scope.callPackage ./build-arduino-project/default.nix { };
 })

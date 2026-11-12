@@ -21,15 +21,15 @@
 stdenvNoCC.mkDerivation {
   pname = "arduino-purifier";
   version = "0.1.0";
-  src = ../.;
+  src = ../..;
   nativeBuildInputs = [ makeWrapper ];
   dontBuild = true;
   installPhase = ''
     mkdir -p "$out/bin" "$out/lib/arduino-purifier"
-    cp -r arduino_purifier nix native "$out/lib/arduino-purifier/"
+    cp -r arduino_purifier pkgs lib-overlays native "$out/lib/arduino-purifier/"
     install -m755 bin/arduino-purifier "$out/bin/arduino-purifier"
     for file in realize release; do
-      substituteInPlace "$out/lib/arduino-purifier/nix/$file.nix" --replace-fail '@nixpkgs@' '${nixpkgsSrc}' --replace-fail '@purifier@' '${purifierSrc}'
+      substituteInPlace "$out/lib/arduino-purifier/pkgs/build-arduino-project/$file.nix" --replace-fail '@nixpkgs@' '${nixpkgsSrc}' --replace-fail '@purifier@' '${purifierSrc}'
     done
     wrapProgram "$out/bin/arduino-purifier" \
       --prefix PATH : ${

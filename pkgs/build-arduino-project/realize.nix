@@ -6,11 +6,11 @@
 let
   nixpkgsSrc = /. + "@nixpkgs@";
   pkgs = import nixpkgsSrc { };
-  scope = import ./scope.nix {
+  scope = import ../default.nix {
     inherit pkgs nixpkgsSrc;
     purifierSrc = /. + "@purifier@";
   };
-  lock = import ./read-lock.nix { inherit (pkgs) lib; } {
+  lock = import ../../lib-overlays/default/read-lock.nix { inherit (pkgs) lib; } {
     src = /. + root;
     lockFile = /. + lockFile;
     system = pkgs.stdenv.hostPlatform.system;
